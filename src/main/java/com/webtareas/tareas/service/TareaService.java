@@ -1,5 +1,6 @@
 package com.webtareas.tareas.service;
 
+import com.webtareas.tareas.exception.TareaNotFoundException;
 import com.webtareas.tareas.model.Tarea;
 import com.webtareas.tareas.repository.TareaRepository;
 import org.springframework.stereotype.Service;
@@ -19,13 +20,18 @@ public class TareaService {
         return tareaRepository.findAll();
     }
 
+    public Tarea obtenerPorId(Long id) {
+        return tareaRepository.findById(id)
+                .orElseThrow(() -> new TareaNotFoundException(id));
+    }
+
     public Tarea guardar(Tarea tarea) {
         return tareaRepository.save(tarea);
     }
 
     public Tarea actualizar(Long id, Tarea tareaActualizada) {
         Tarea tarea = tareaRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Tarea no encontrada"));
+                .orElseThrow(() -> new TareaNotFoundException(id));
         tarea.setTitulo(tareaActualizada.getTitulo());
         tarea.setDescripcion(tareaActualizada.getDescripcion());
         tarea.setCompletada(tareaActualizada.isCompletada());

@@ -21,6 +21,10 @@ public class TareaController {
     public List<Tarea> obtenerTodas() {
         return tareaService.obtenerTodas();
     }
+    @GetMapping("/{id}")
+    public Tarea obtenerPorId(@PathVariable Long id) {
+    return tareaService.obtenerPorId(id);
+}
 
     @PostMapping
     public Tarea crear(@RequestBody Tarea tarea) {
