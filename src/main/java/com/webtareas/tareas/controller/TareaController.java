@@ -23,8 +23,8 @@ public class TareaController {
     }
     @GetMapping("/{id}")
     public Tarea obtenerPorId(@PathVariable Long id) {
-    return tareaService.obtenerPorId(id);
-}
+        return tareaService.obtenerPorId(id);
+    }
 
     @PostMapping
     public Tarea crear(@RequestBody Tarea tarea) {
