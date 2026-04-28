@@ -20,7 +20,7 @@ public class TareaService {
         return tareaRepository.findAll();
     }
 
-    public Tarea obtenerPorId(Long id) {
+    public Tarea obtenerPorId(long id) {
         return tareaRepository.findById(id)
                 .orElseThrow(() -> new TareaNotFoundException(id));
     }
@@ -29,7 +29,7 @@ public class TareaService {
         return tareaRepository.save(tarea);
     }
 
-    public Tarea actualizar(Long id, Tarea tareaActualizada) {
+    public Tarea actualizar(long id, Tarea tareaActualizada) {
         Tarea tarea = tareaRepository.findById(id)
                 .orElseThrow(() -> new TareaNotFoundException(id));
         tarea.setTitulo(tareaActualizada.getTitulo());
@@ -38,7 +38,7 @@ public class TareaService {
         return tareaRepository.save(tarea);
     }
 
-    public void eliminar(Long id) {
+    public void eliminar(long id) {
         Tarea tarea = tareaRepository.findById(id)
                 .orElseThrow(() -> new TareaNotFoundException(id));
         tareaRepository.delete(tarea);

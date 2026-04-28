@@ -22,7 +22,7 @@ public class TareaController {
         return tareaService.obtenerTodas();
     }
     @GetMapping("/{id}")
-    public Tarea obtenerPorId(@PathVariable Long id) {
+    public Tarea obtenerPorId(@PathVariable long id) {
         return tareaService.obtenerPorId(id);
     }
 
@@ -32,12 +32,12 @@ public class TareaController {
     }
 
     @PutMapping("/{id}")
-    public Tarea actualizar(@PathVariable Long id, @RequestBody Tarea tarea) {
+    public Tarea actualizar(@PathVariable long id, @RequestBody Tarea tarea) {
         return tareaService.actualizar(id, tarea);
     }
 
     @DeleteMapping("/{id}")
-    public void eliminar(@PathVariable Long id) {
+    public void eliminar(@PathVariable long id) {
         tareaService.eliminar(id);
     }
 }
