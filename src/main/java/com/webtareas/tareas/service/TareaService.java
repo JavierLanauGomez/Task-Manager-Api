@@ -39,8 +39,8 @@ public class TareaService {
     }
 
     public void eliminar(Long id) {
-        tareaRepository.findById(id)
+        Tarea tarea = tareaRepository.findById(id)
                 .orElseThrow(() -> new TareaNotFoundException(id));
-        tareaRepository.deleteById(id);
+        tareaRepository.delete(tarea);
     }
 }
