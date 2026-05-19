@@ -3,6 +3,7 @@ package com.webtareas.tareas.controller;
 
 import com.webtareas.tareas.model.Tarea;
 import com.webtareas.tareas.service.TareaService;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -27,12 +28,12 @@ public class TareaController {
     }
 
     @PostMapping
-    public Tarea crear(@RequestBody Tarea tarea) {
+    public Tarea crear(@Valid @RequestBody Tarea tarea) {
         return tareaService.guardar(tarea);
     }
 
     @PutMapping("/{id}")
-    public Tarea actualizar(@PathVariable long id, @RequestBody Tarea tarea) {
+    public Tarea actualizar(@PathVariable long id, @Valid @RequestBody Tarea tarea) {
         return tareaService.actualizar(id, tarea);
     }
 
